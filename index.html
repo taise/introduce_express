@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>JavaScript in the future</title>
+    <meta name="author" content="Yusaku Omasa / @taise_515" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="css/impress-demo.css" rel="stylesheet" />
+  </head>
+  <body class="impress-not-supported">
+    <div class="fallback-message">
+      <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+      <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+    </div>
+
+    <div id="impress">
+      <div id="title" class="step" data-x="0" data-y="0" data-scale="2">
+          <h1>JavaScript in the future<sup>*</sup></h1>
+      </div>
+
+      <div class="step simple" data-x="-3000" data-y="0" data-scale="3">
+        <img src="img/hajimeru.jpg"></img>
+      </div>
+ 
+
+      <div class="step simple" data-x="-3000" data-y="-3000">
+        <img src="img/misawa.jpeg" class="p_right misawa"></img>
+        <q>
+          近年、<b>JavaScirpt</b>の役割が<br/>
+          　 大きく変わってきています。
+        </q>
+        <br />
+        <footer class="show_misawa">
+          本日は、それがどう変わってきたかお話しします。
+        </footer>
+      </div>
+ 
+      <div class="step simple" data-x="0" data-y="-3000"
+       data-rotate-y="90" data-scale="2">
+       <h2>アジェンダ</h2>
+       <span>JavaScriptを取り巻く3つの変化</span>
+       <ul>
+        <li class="red">
+          1.環境/時代の変化
+        </li>
+        <li class="red">
+          2.クライアントにおける変化
+        </li>
+        <li class="routating">
+          3.サーバサイドにおける変化
+        </li>
+      </ul>
+    </div>
+     <div class="step simple" data-x="-3500" data-y="-1500">
+          <h3>1.環境/時代の変化</h3>
+        <q>
+          役割が変わってきた背景を理解するために<br />
+          Webの歴史をたどってみる
+        </q>
+      </div>
+
+     <div class="step simple" data-x="-1500" data-y="-1500" data-scale="2">
+          <h3>大きな4つの変化</h3>
+          <ul>
+            <li>
+             <b>1) 通信</b>
+           </li>
+           <li>
+             <b>2) Webブラウザ</b>
+           </li>
+           <li>
+             <b>3) コンテンツタイプ</b>
+           </li>
+           <li>
+             <b>4) 動的サイトの技術</b>
+           </li>
+         </ul>
+      </div>
+
+     <div class="step simple" data-x="0" data-y="-1500">
+        <q>
+          まずは時代ごとに縦切りにして整理する
+        </q>
+      </div>
+
+      <!-- 昔のWeb -->
+      <div class="step simple" data-x="2500" data-y="-1500">
+        <h4>昔のWeb (1990年〜2000年ごろ)</h4>
+        <ul>
+          <li>
+            <b>・貧弱な電話通信回線</b>
+          </li>
+          <li>
+            <b>・貧弱なWebブラウザ</b>
+          </li>
+          <li>
+            <b>・テキスト中心のWebサイト</b>
+          </li>
+          <li>
+            <b>・JavaAppletとShockwave</b>
+          </li>
+        </ul>
+      </div>
+
+     <div class="step simple" data-x="4000" data-y="-1500">
+          <h4>貧弱な電話通信回線</h4>
+        <q>
+          ピーヒョロヒョロピーガーガーと電話回線でインターネットに接続<br />
+          ISDNで電話とネット回線が同時に使えるようになって喜んでいた
+        </q>
+        <img src="img/isdn.gif" class="p_right"></img>
+      </div>
+
+     <div class="step simple" data-x="5500" data-y="-1500">
+        <img src="img/netscape.jpeg" class="p_right"></img>
+          <h4>貧弱なWebブラウザ</h4>
+        <q>
+          ブラウザといったら<br />
+          IEやNetScapeのみ<br />
+          JavaScript(JScript)もお試しで実装された
+        </q>
+      </div>
+
+     <div class="step simple" data-x="7000" data-y="-1500">
+          <h4>テキスト中心のWebサイト</h4>
+        <q>
+          基本的にHTMLだけのサイト<br />
+          HTMLの中にstyleもJavaScriptも書かれてた<br />
+          JavaScriptといえばポップアップやティッカー
+        </q>
+      </div>
+     <div class="step simple" data-x="8500" data-y="-1500">
+          <h4>JavaAppletとShockwave</h4>
+          <img src="img/shockwave.jpeg" class="p_right"></img>
+        <q>
+          テキストのみのサイトが中心<br />
+          一部の動きのあるサイトは<br />
+          Java AppletやShockwaveが使われていた
+        </q>
+      </div>
+
+      <!-- 少し前のWeb -->
+      <div class="step simple" data-x="2500" data-y="-500">
+        <h4>少し前のWeb (2000年~2010年ごろ)</h4>
+        <ul>
+          <li>
+            <b>・光回線による通信の高速化</b>
+          </li>
+          <li>
+            <b>・Webブラウザの多機能化</b>
+          </li>
+          <li>
+            <b>・ブログから動画まで</b>
+          </li>
+          <li>
+            <b>・FlashとAjax</b>
+          </li>
+        </ul>
+      </div>
+
+     <div class="step simple" data-x="4000" data-y="-500">
+          <h4>光回線による通信の高速化</h4>
+        <q>
+          ADSLや光回線の普及で常時接続が当たり前<br />
+          通信速度も比較にならないほど高速に
+        </q>
+        <img src="img/hikari.gif" class="p_right compressed"></img>
+      </div>
+
+     <div class="step simple" data-x="5500" data-y="-500">
+          <h4>Webブラウザの多機能化</h4>
+        <q>
+          FireFoxの登場でレンダリングが高速に<br />
+          タブなどの新機能やアドオンによって拡張性も広がった
+        </q>
+        <img src="img/firefox.JPG" class="p_right compressed"></img>
+      </div>
+
+     <div class="step simple" data-x="7000" data-y="-500">
+          <h4>ブログから動画まで</h4>
+        <q>
+       ブログブームが巻き起こる<br />
+       Youtubeなどの動画投稿サイトにより<br />
+       インターネット利用者が拡大していった 
+     </q>
+     <img src="img/nc3132.gif" class="p_right"></img>
+      </div>
+     <div class="step simple" data-x="8500" data-y="-500">
+          <h4>FlashとAjax</h4>
+        <q>
+          Flash<img src="img/flash.jpg" class="small"></img>がもっとも輝いていた時代<br />
+          Google MapによってAjaxが注目され<br />
+          JavaScriptが普及し始めた
+        </q>
+        <img src="img/googlemap.png" class="p_right compressed"></img>
+      </div>
+
+      <!-- 今のWeb -->
+      <div class="step simple" data-x="2500" data-y="500">
+        <h4>今のWeb (2010以降)</h4>
+        <ul>
+          <li>
+            <b>・無線通信の普及</b>
+          </li>
+          <li>
+            <b>・Webブラウザの高機能/多種化</b>
+          </li>
+          <li>
+            <b>・Webアプリケーションの普及</b>
+          </li>
+          <li>
+            <b>・HTML5とJavaScript</b>
+          </li>
+        </ul>
+      </div>
+
+     <div class="step simple" data-x="4000" data-y="500">
+          <h4>無線通信の普及</h4>
+                  <q>
+          スマートフォン、タブレット端末の普及で<br />
+          外出先でインターネットをするのが当たり前<br />
+          公衆無線LANも非常に増えた
+        </q>
+      <div class="toggle">
+        <img src="img/iphone.jpeg" class="p_right"></img>
+        <img src="img/iphone10.jpeg" class="p_right compressed" style="display: none;"></img>
+      </div>
+      </div>
+
+     <div class="step simple" data-x="5500" data-y="500">
+          <h4>Webブラウザの高機能化と多種化</h4>
+        <q>
+          Chromの登場で競争が激化<br />
+          各ブラウザが新機能をどんどん取り入れる<br />
+          スマートフォン用のWebブラウザも急激に利用者が増えた
+        </q>
+        <img src="img/browsers.jpeg" class="p_right"></img>
+      </div>
+
+     <div class="step simple" data-x="7000" data-y="500">
+          <h4>Webアプリケーションの普及</h4>
+        <q>
+          GoogleやFacebookのようなWebサービス<br />
+          スマフォアプリもWebアプリが主流に<br />
+          業務アプリケーションまでWeb化が進む<br />
+        </q>
+        <img src="img/jibun.jpeg" class="p_right"></img>
+        <img src="img/direct.jpeg" class="p_right"></img>
+      </div>
+     <div class="step simple" data-x="8500" data-y="500">
+          <h4>HTML5とJavaScript</h4>
+        <q>
+          HTML5+CSS3によりブラウザの表現力が向上<br />
+          新機能はJavaScriptによって利用可能
+        </q>
+        <img src="img/html5.jpeg" class="p_right"></img>
+      </div>
+
+      <div class="step simple" data-x="-3500" data-y="1500">
+        <q>
+          時代ごとの整理をふまえて<br />
+          大きく変わった4点を<br />
+          変化を追って整理すると
+        </q>
+      </div>
+
+
+      <div class="step simple" data-x="-2000" data-y="1500">
+        <h3>1.通信</h3>
+        <ul class="list">
+          <li>貧弱な電話通信回線</li>
+          <li>光回線による通信の高速化</li>
+          <li>無線通信の普及</li>
+        </ul>
+        <br />
+        <span>ポイント</span>
+        <p>
+         画像などが多くてもストレスレスに<br />
+         スマフォで外出先でもインターネット
+       </p>
+      </div>
+
+      <div class="step simple" data-x="-500" data-y="1500">
+        <h3>2.Webブラウザ</h3>
+        <ul class="list">
+          <li>貧弱なWebブラウザ</li>
+          <li>Webブラウザの多機能化</li>
+          <li>Webブラウザの高機能/多種化</li>
+        </ul>
+        <br />
+        <span>ポイント</span>
+        <p>
+         ブラウザの処理能力・表現能力が<br />
+         飛躍的に向上した
+       </p>
+      </div>
+
+      <div class="step simple" data-x="1000" data-y="1500">
+        <h3>3.コンテンツタイプ</h3>
+        <ul class="list">
+          <li>テキスト中心のWebサイト</li>
+          <li>ブログから動画まで</li>
+          <li>Webアプリケーションの普及</li>
+        </ul>
+        <br />
+        <span>ポイント</span>
+        <p>
+         ブラウザの役割の変化<br />
+         テキストブラウザからアプリエンジンに
+       </p>
+      </div>
+      
+      <div class="step simple" data-x="2500" data-y="1500">
+        <h3>4.静的/動的</h3>
+        <ul class="list">
+          <li>JavaAppletとShockwave</li>
+          <li>FlashとAjax</li>
+          <li>HTML5とJavaScript</li>
+        </ul>
+        <br />
+        <span>ポイント</span>
+        <p>
+         FlashなどのプラグインからJavaScriptへ<br />
+       </p>
+      </div>
+      
+      <div class="step simple" data-x="4000" data-y="1500">
+        <q>
+          もう少し深堀してみます。
+        </q>
+      </div>
+      
+      <div class="step simple" data-x="5500" data-y="1500">
+        <ul>
+          <li>
+            <h4>通信回線が貧弱だった時</h4>
+            <p>
+              転送ファイルサイズは小さく少なく
+            </p>
+          </li>
+          <li>
+            <br />
+            <h4>Webブラウザが貧弱だった時</h4>
+            <p>
+            ブラウザ処理は時間がかかるため、
+            サーバががんばるシステムに
+          </p>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="step simple" data-x="7000" data-y="1500">
+        <q>
+          こうした背景からテキスト中心のアプリが作られてきた
+        </q>
+        <center>
+          <img src="img/yajirushi.jpeg"></img>
+        </center>
+        <q>
+          通信やブラウザの強化により、
+          コンテンツタイプやWebサイトの性質が変化してきた
+        </q>
+      </div>
+      
+      <div class="step simple" data-x="8500" data-y="1500">
+        <q>
+          「JavaScripの役割が変わてきた」<br />
+          とスライドの最初に書きました<br />
+        </q>
+        <q>
+          取り巻く環境の変化はわかったとして、<br />
+          なぜJavaScriptなのか
+        </q>
+      </div>
+
+      
+      <div class="step simple" data-x="-3500" data-y="2500" data-scale="2">
+        <h2>JavaScript</h2>
+          <h4>
+          すべてのWebブラウザで利用できる<br />
+          ただ一つのプログラミング言語
+          </h4>
+      <div class="toggle">
+          <img src="img/jobs.jpeg" class="p_right"></img>
+          <img src="img/douglas.jpeg" class="p_right" style="display: none;"></img>
+        </div>
+      </div>
+
+      <div class="step simple" data-x="-1000" data-y="2500">
+        <h3>
+          ではなぜFlashなどが<br />
+          使われなくなってきたか
+        </h3>
+      </div>
+
+      <div class="step simple" data-x="500" data-y="2500">
+        <h3>２つの課題</h3>
+        <ul class="list">
+          <li>
+            ブラウザそのものの機能ではない
+            (Flashプレーヤーが必要)
+          </li>
+            <br />
+          <li>
+            iOSではFlashが利用できない
+          </li>
+        </ul>
+        </q>
+      </div>
+
+      <div class="step simple" data-x="2000" data-y="2500">
+        <h3 class="red_style">Webアプリを作るにはJavaScriptの利用が必須に</h3>
+        <img src="img/javascript.jpeg" class="p_right"></img>
+      </div>
+
+      <div class="step simple" data-x="3500" data-y="2500">
+        <q>
+          ここまでが環境/時代の変化のお話です
+        </q>
+        <img src="img/dai3bukan.jpg" class="p_right"></img>
+      </div>
+
+      <div class="step simple" data-x="-3500" data-y="3500">
+        <h2>
+          2.クライアントの<br />
+          　　JavaScript
+        </h2>
+        <q>
+          JavaScriptが書かれるようになった理由<br />
+          そうなったことによる課題と解決について
+        </q>
+      </div>
+
+      <div class="step simple" data-x="-1000" data-y="3500">
+        <h3>よくある例</h3>
+        <div class="toggle">
+          <img src="img/infoscoop_code.png" class="p_right"></img>
+          <img src="img/infoscoop.png" class="p_right" style="display: none;"></img>
+        </div>
+        JavaScriptで1000行とか当たり前に
+      </div>
+
+      <div class="step simple" data-x="500" data-y="3500">
+        <h3>
+          JavaScriptのコード量が<br />
+          どんどん増大している
+        </h3>
+          <img src="img/gochagocha.jpeg" class="p_right"></img>
+      </div>
+
+      <div class="step simple" data-x="2000" data-y="3500">
+        <h3>なぜ増えているか</h3>
+        <br />
+        <span>ポイントは3つ</span>
+        <ul>
+          <li>
+            1) ストレスレス
+          </li>
+          <li>
+            2) HTML5などの新機能
+          </li>
+          <li>
+            3) ライブラリの発展
+          </li>
+        </ul>
+      </div>
+
+
+      <!-- 1.ストレスレス -->
+      <div class="step simple" data-x="3500" data-y="3500">
+        <h4>1.ストレスレス</h4>
+        <q>
+          Webアプリでストレスのたまることといえば
+        </q><br />
+        <center>
+        <h4>
+         ページ遷移
+        </h4>
+        </center>
+        <p>
+          サーバの応答をまったり、<br />
+          画面が切り替わったりするのが煩わしい
+       </p>
+      </div>
+
+      <div class="step simple" data-x="5000" data-y="3500">
+        <p>
+          以前は、表示内容を変えるのに<br />
+          毎回サーバからHTMLを送っていた
+        </p>
+        <center>
+          <img src="img/yajirushi.jpeg" style="width: 200px; height: 80px;"></img>
+        </center>
+        <p>
+          ページ遷移しないで画面の内容を書き換えたいけどHTMLは静的なコンテンツ
+        </p>
+      </div>
+
+      <div class="step simple" data-x="6500" data-y="3500">
+        <h3>そこでJavaScript</h3>
+        <ul class="list">
+          <li>
+            JavaScriptでHTML(DOM)操作
+          </li>
+          <li>
+            Ajaxでサーバ情報の取得/表示
+          </li>
+        </ul>
+      </div>
+
+      <div class="step simple" data-x="8000" data-y="3500">
+        <h3>UX/UIへの注目</h3>
+        <p>
+          ストレスフルなアプリは使われない<br />
+          わかりやすいUIと気持ちのよい操作感が重要
+        </p>
+        <img src="img/ux_ui.png" class="p_right"></img>
+        <h4>
+         それらの表現にJavaScriptが必須
+       </h4>
+      </div>
+
+
+
+      <!-- 2.HTML5 -->
+     <div class="step simple" data-x="3500" data-y="4500">
+        <h4>2.HTML5などの新機能</h4>
+        <q>
+          HTML5によってWebブラウザの機能が向上
+        </q>
+        <ul class="list">
+          <li>
+            FileAPI
+          </li>
+          <li>
+            WebStorage
+          </li>
+          <li>
+            WebSocket
+          </li>
+        </ul>
+        <footer class="p_right">
+          など。。。
+        </footer>
+      </div>
+
+      <div class="step simple" data-x="5000" data-y="4500">
+        <img src="img/html5_logo.jpeg" class="p_right"></img>
+        <ul class="list">
+          <li>
+            ファイル操作
+          </li>
+          <li>
+            データの保存
+          </li>
+          <li>
+            リアルタイム通信
+          </li>
+        </ul>
+        <q>
+          利用するにはJavaScriptを書く必要がある
+        </q>
+      </div>
+
+      <div class="step simple" data-x="6500" data-y="4500">
+        <h4>
+          新機能によって<br />
+          これまで<b>「できなかった」</b>ことが<br />
+          <b>「できる」</b>ようになる
+        </h4>
+      </div>
+
+      <div class="step simple" data-x="8000" data-y="4500">
+        <p>
+          あきらめたり、サーバ側で代替実装されていたものが、クライアント側のJavaScriptで作られるようになった
+        </p>
+        <h4>　JavaScriptのコード量が増える</h4>
+      </div>
+
+
+
+      <!-- 3.ライブラリの発展 -->
+     <div class="step simple" data-x="3500" data-y="5500">
+      <h3>3.ライブラリの発展</h3>
+        <q>
+          以前は貧弱だったJavaScriptも、<br />
+          メジャーなライブラリが増えてきた
+        </q>
+        <br />
+
+        <footer class="p_right">
+          少しだけライブラリ紹介
+        </footer>
+      </div>
+
+      <div class="step simple" data-x="5000" data-y="5500">
+        <img src="img/jquery.jpeg" class="p_right"></img>
+        <h4>jQuery/jQueryUI</h4>
+        <q>
+         cssのセレクタと同じ表現で、DOMを選択して様々な操作が可能なため、
+         イマドキのWebアプリで使われていないものはないレベルで浸透している
+       </q>
+      </div>
+
+      <div class="step simple" data-x="6500" data-y="5500">
+        <img src="img/underscore.jpeg" class="p_right"></img>
+        <h4>Underscore.js</h4>
+        <q>
+          JavaScriptの使いにくい部分を補ってくれるライブラリで、<br />
+          Rubyライクなシンプルな表現ができる
+        </q>
+      </div>
+
+      <div class="step simple" data-x="8000" data-y="5500">
+        <img src="img/requirejs.jpeg" class="p_right"></img>
+        <h4>Require.js</h4>
+        <q>
+          JavaScriptの依存関係を指定したり、
+          ファイルを非同期で読み込むことで、<br />
+          ブラウザの硬直を解消できるライブラリ
+        </q>
+      </div>
+
+
+      <!-- JavaScript FrameWork -->
+      <div class="step simple" data-x="-3500" data-y="5000">
+          <h4>
+            JavaScriptのコードが<br/>
+            増えることによる問題
+          </h4>
+          <ul>
+            <li>
+             <b>複雑化</b>
+           </li>
+           <li>
+             <b>可読性の低下</b>
+           </li>
+          </ul>
+        <q>
+          メンテナンス性が低下し、<br />
+          開発もしにくくなっていく
+        </q>
+      </div>
+
+     <div class="step simple" data-x="-1500" data-y="5000" data-scale="2">
+      <h4>そこでJavaScriptフレームワーク</h4>
+      <q>
+        JavaScriptフレームワークによって <br />
+        アプリケーションが構造化され、<br />
+        開発がしやすくなる
+      </q>
+      </div>
+
+      <div class="step simple" data-x="0" data-y="5000">
+        <h4>メジャーなJavaScriptFW</h4>
+        <ul class="list">
+          <li>
+            Backbone.js
+          </li>
+          <li>
+            knockout.js
+          </li>
+          <li>
+            Ember.js
+          </li>
+          <li>
+            Angular.js
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="step simple" data-x="1500" data-y="5000">
+        <q>
+          評価の結果<b>Backbone.js<b>が最適<br />
+          (詳細は部長席報告を参照)
+        </q>
+
+        <p>今回はBackbone.jsにしぼって解説する</p>
+      </div>
+
+
+      <!-- Backbone.JS -->
+      <div class="step simple" data-x="-3500" data-y="6500">
+        <img src="img/backbone.png"></img>
+      </div>
+
+      <div class="step simple" data-x="-2000" data-y="6500">
+        <h4>Backbone.jsのうれしさ</h4>
+        <ul class="list">
+          <li>
+           アプリケーションの構造化
+         </li>
+         <li>
+          イベントの集約
+        </li>
+        <li>
+          RESTfulなサーバ通信
+        </li>
+        <li>
+          シングルページ化
+        </li>
+      </ul>
+    </div>
+
+      <div class="step simple" data-x="-500" data-y="6500">
+        <h4>[アプリケーションの構造化]</h4>
+        <q>
+          MVCモデル(Model/View/Controller)により
+          処理の責務を分割する<br />
+          MVCを理解していれば、プログラムの見通しがよくなる
+        </q>
+        <img src="img/backbone_pattern.png" class="p_right compressed"></img>
+      </div>
+
+      <div class="step simple" data-x="1000" data-y="6500">
+        <h4>[イベントの集約]</h4>
+        <q>
+          clickなどのイベントはHTMLにもJavaScriptにもかけるため、処理が追いにくい<br />
+          Backbone.jsではViewにイベントを集約するため、読みやすくメンテしやすい
+        </q>
+      <div class="toggle">
+          <img src="img/click.jpeg" class="p_right"></img>
+          <img src="img/event.gif" class="p_right" style="display: none;"></img>
+        </div>
+      </div>
+
+      <div class="step simple" data-x="2500" data-y="6500">
+        <h4>[RESTfulなサーバ通信]</h4>
+        <q>
+          Backbone.jsのModelは、サーバとのRESTfulAPI通信を前提としており、<br />
+          Urlを指定してfetch()を呼び出すだけで、<br />
+          サーバ通信が簡単にできる
+        </q>
+        <img src="img/restful.jpeg" class="p_right"></img>
+      </div>
+
+      <div class="step simple" data-x="4000" data-y="6500">
+        <h4>[シングルページ化]</h4>
+        <q>
+          テンプレートやサーバ通信を利用して画面を動的に書き換えることで、<br />
+          ページ遷移のない、「シングルページ・<br />
+          アプリケーション」を作ることができる
+        </q>
+      </div>
+
+      <div class="step simple" data-x="5500" data-y="6500">
+        <q>
+          <b class="red_style" style="font-size: 50px;">Backbone.js</b>を利用して開発することで<br />
+          大規模でもメンテナンスしやすい<br />
+          JavaScriptアプリケーションが開発できる
+        </q>
+        <br />
+        <center>
+          <img src="img/backbone.jpeg"></img>
+        </center>
+      </div>
+
+      <div class="step simple" data-x="7000" data-y="6500">
+        <h3>まとめ</h3>
+        <br />
+          <h4>JavaScript沢山かかなきゃ</h4>
+          <h4>　=> 複雑になってメンテが大変</h4>
+          <h4>　　=> JavaScriptFWを使おう</h4>
+      </div>
+
+      <div class="step simple" data-x="8500" data-y="6500">
+      </div>
+
+<!--
+      <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+        <p>It's a <strong>presentation tool</strong> <br/>
+        inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
+        and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+      </div>
+
+      <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+        <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
+      </div>
+
+      <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
+        <p>and <b>tiny</b> ideas</p>
+      </div>
+
+      <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
+        <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
+      </div>
+
+      <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
+        <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
+      </div>
+
+      <div class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
+      </div>
+
+      <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
+        <p>one more thing...</p>
+      </div>
+
+      <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+        <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
+        <span class="footnote">* beat that, prezi ;)</span>
+      </div>
+
+  -->
+      <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+      </div>
+
+    </div>
+
+    <div class="hint">
+      <p>Use a spacebar or arrow keys to navigate</p>
+    </div>
+    <script>
+      if ("ontouchstart" in document.documentElement) { 
+      document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+      }
+    </script>
+
+    <script src="js/impress.js"></script>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script>
+      $(function(){
+        // click event
+        $(".red").click(function(){ $(this).toggleClass("red_style"); });
+        $(".show_misawa").click(function(){ $(".misawa").toggle(2000); });
+        $(".compressed").click(function(){
+          $(this).toggleClass("full");
+            if($(this).hasClass("full")){
+              $(this).animate({ width: "20%", height: "20%" }, 300);
+            } else {
+              $(this).animate({ width: "50%", height: "50%" }, 800);
+            };
+          });
+        $(".toggle").click(function(){
+          $(this).children().toggle();
+        })
+      });
+      impress().init();
+    </script>
+  </body>
+</html>
+
