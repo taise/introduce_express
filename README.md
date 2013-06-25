@@ -2,7 +2,7 @@
 
 _1.expressとは_  
 _2.なぜ Node.js + express を使うか_  
-_3.Getting started_
+_3.Getting started_  
 _4.パッケージの追加_
   
 
@@ -104,7 +104,6 @@ exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
 ```
-
 _変更後_
 ```javascript
 exports.index = function(req, res){
