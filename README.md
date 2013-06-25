@@ -50,19 +50,20 @@ JavaScriptのイベント・ループをベースに非同期処理を行って�
 
 ### 3.Getting started
 
-##### 1) Install
+#### 1) Install
 
 ```shell
 $ npm install -g express
 $ which express
 ```
 
-##### 2) Generate
+#### 2) Generate
 
 ```shell
 $ express helloWorld
 ```
-生成された`app.js`が処理の中心になっており、依存関係のモジュール定義や環境設定、ルーティングなどを定義します。
+生成された`app.js`が処理の中心になっています。  
+依存関係のモジュール定義や環境設定、ルーティングなどを定義します。
 
 ![app.js](https://cacoo.com/diagrams/elk3nlNaVeK4Dayy-555AF.png)
   
@@ -88,7 +89,7 @@ $ tree -C  -I node_modules
 ```
   
 
-##### 3) Hello World
+#### 3) Hello World
 
 Nodeサーバー起動
 ```shell
@@ -118,8 +119,9 @@ Nodeサーバー起動
 ```shell
 $ node app
 ```
-再度、`http://localhost:3000/`にアクセスすると、タイトルが変更されていることがわかります。  
-
+`http://localhost:3000/`にアクセスすると、タイトルが変更されています。  
+  
+  
   
 
 ### 4.パッケージの追加
@@ -131,7 +133,7 @@ Node.jsにはMongoDBのORMの`mongoose`というライブラリがあります�
 Node.jsは、npmとpackage.jsonを使ってパッケージ管理をしています。  
 `mongoose`の追加は以下のように行います。
 
-##### 1) package.jsonにmongooseを追加する
+#### 1) package.jsonにmongooseを追加する
 ```json
 {
   "name": "helloWorld",
@@ -147,13 +149,15 @@ Node.jsは、npmとpackage.jsonを使ってパッケージ管理をしていま�
     }
 }
 ```
-
-##### 2) npm install
+  
+  
+#### 2) npm install
 ```shell
 $ npm install
 ```
+  
 
-##### 3) requireして利用する
+#### 3) requireして利用する
 
 追加したパッケージを利用するには、利用するファイル内でrequireをします。
 ```javascript
@@ -163,16 +167,16 @@ var db = require('mongoose')
 
 ### 5.Express + MongoDB
 
-##### 1) DBコネクト
-mongooseを追加したので、MongoDBと連携させてみます。
+#### 1) DBコネクト
+mongooseを追加したので、MongoDBと連携させます。  
 まずは、`routes/user.js`でDBコネクトします。
 ```javascript
 var db = require('mongoose');
 db.connect('mongodb://localhost/helloWorld');
 ```
+  
 
-
-##### 2) スキーマ定義
+#### 2) スキーマ定義
 `routes/user.js`にschemaを追記します。
 ```javascript
 var schema = new db.Schema({
@@ -182,15 +186,15 @@ var schema = new db.Schema({
 });
 ```
 
-
-##### 3) Model定義
+  
+#### 3) Model定義
 スキーマで定義したオブジェクトをModelとして登録します。
 ```javascript
 var User = db.model('User', schema);
 ```
+  
 
-
-##### 4) createリクエストの作成
+#### 4) createリクエストの作成
 Userデータを作成する画面を追加します。  
 まずは`app.js`にルーティングを追加します。
 usersでpostされたら、`routse/user.js`のcreateに渡します。
@@ -198,8 +202,8 @@ usersでpostされたら、`routse/user.js`のcreateに渡します。
 app.post('/users', user.create);
 ```
 
-次に、`routes/user.js`にcreate処理を書いていきます。
-createの中で、mongooseのModel.createを使ってデータを保存します。
+次に`routes/user.js`にcreate処理を書いていきます。
+createは、mongooseのModel.createを使ってデータを保存します。
 ```javascript
 exports.create = function(req, res){
   User.create({
@@ -212,7 +216,7 @@ exports.create = function(req, res){
 };
 ```
 
-次に、画面を作成します。
+次に、画面を作成します。  
 既にある`views/index.jade`をコピーして作ります。
 ```shell
 $ cp views/index.jade views/user.jade
@@ -234,7 +238,7 @@ block content
       input(type='submit', value='登録')
 ```
 
-画面が作成できたので、この画面へのルーティングを設定します。
+画面が作成できたので、この画面へのルーティングを設定します。  
 最初から`routes/user.js`に_user.list_があるので、まずはそこを利用します。
 ```javascript
 exports.list = function(req, res){
@@ -242,7 +246,7 @@ exports.list = function(req, res){
 };
 ```
 
-ここで、サーバを再起動してみます。
+ここで、サーバを再起動してみます。  
 変更の度に何度も再起動するのは手間なので、変更を自動で反映してくれるパッケージを利用すると便利です。
 パッケージは`supervisor`です。
 ```shell
@@ -254,12 +258,12 @@ supervisorで再起動します。
 $ supervisor app
 ```
 
-登録が成功すると"created"と表示されます。
+登録が成功すると"created"と表示されます。  
 (MongoDBのコンソールで確認できます)
+  
 
-
-##### 5) Userリストを表示する
-作成したユーザデータを表示します。
+#### 5) Userリストを表示する
+作成したユーザデータを表示します。  
 `routes/user.js`のlistを変更して、MongoDBからデータを取得します。
 ```javascript
 exports.list = function(req, res){
@@ -271,8 +275,8 @@ exports.list = function(req, res){
 };
 ```
 
-次に、リスト表示する画面を作成します。
-先ほど登録で使った画面を流用します。
+次に、リスト表示する画面を作成します。  
+先ほど登録で使った画面を流用します。  
 `views/user.js`に以下を追記してください。
 ```jade
 
