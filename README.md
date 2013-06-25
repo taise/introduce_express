@@ -4,6 +4,7 @@ _1.expressとは_
 _2.なぜ Node.js + express を使うか_  
 _3.Getting started_  
 _4.パッケージの追加_
+_5.Express + MongoDB_
   
 
 ### 1.expressとは
@@ -152,5 +153,19 @@ Node.jsは、npmとpackage.jsonを使ってパッケージ管理をしていま�
 $ npm install
 ```
 
-##### 3) 利用するモジュールでrequireする
+##### 3) requireして利用する
 
+追加したパッケージを利用するには、利用するファイル内でrequireをします。
+```javascript
+var db = require('mongoose')
+```
+
+
+### 5.Express + MongoDB
+
+mongooseを追加したので、MongoDBと連携させてみます。
+まずは、`routes/user.js`でDBコネクトします。
+```javascript
+var db = require('mongoose');
+db.connect('mongodb://localhost/helloWold');
+```
