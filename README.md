@@ -32,16 +32,16 @@ Node.js + express で開発するメリットは何か
 
 WebアプリケーションはJavaScriptの開発が欠かせなくなっており、
 _Java + JavaScript_ や _Ruby + JavaScript_といったスキルセットが
-当たり前に求められるようになってきた
+当たり前に求められるようになってきました。
 
 Node.js + express で開発をすると
-フロントからバックエンドまで、すべてJavaScriptで統一できる
+フロントからバックエンドまで、すべてJavaScriptで統一できます。
 
 
 **ノンブロッキングI/O**
 
 Node.jsはGoogle Chromのv8エンジンで処理を行っており、
-JavaScriptのイベント・ループをベースに非同期処理を行っている
+JavaScriptのイベント・ループをベースに非同期処理を行っています。
 
 
 * DB問い合わせで処理待ちを行わない
@@ -62,7 +62,7 @@ $ which express
 ```shell
 $ express helloWorld
 ```
-生成された`app.js`が処理の中心になっており、依存関係のモジュール定義や環境設定、ルーティングなどが記載されている。
+生成された`app.js`が処理の中心になっており、依存関係のモジュール定義や環境設定、ルーティングなどを定義します。
 
 ![app.js](https://cacoo.com/diagrams/elk3nlNaVeK4Dayy-555AF.png)
   
@@ -95,12 +95,12 @@ Nodeサーバー起動
 $ node app
 ```
 `http://localhost:3000/`にアクセスすると、indexページが表示される。  
-expressの処理の流れは以下の図のようになっている。
+expressの処理の流れは以下の図のようになっています。
 
 ![処理の流れ](https://cacoo.com/diagrams/elk3nlNaVeK4Dayy-ED582.png)
 
 トップページに、コントローラから渡された"Hello World"と表示するには
-`routes/index.js`を以下のように変更する。
+`routes/index.js`を以下のように変更します。
 
 ```javascript
 exports.index = function(req, res){
@@ -118,7 +118,7 @@ Nodeサーバー起動
 ```shell
 $ node app
 ```
-再度、`http://localhost:3000/`にアクセスすると、タイトルが変更されていることがわかる。  
+再度、`http://localhost:3000/`にアクセスすると、タイトルが変更されていることがわかります。  
 
   
 
@@ -163,9 +163,146 @@ var db = require('mongoose')
 
 ### 5.Express + MongoDB
 
+##### 1) DBコネクト
 mongooseを追加したので、MongoDBと連携させてみます。
 まずは、`routes/user.js`でDBコネクトします。
 ```javascript
 var db = require('mongoose');
-db.connect('mongodb://localhost/helloWold');
+db.connect('mongodb://localhost/helloWorld');
 ```
+
+
+##### 2) スキーマ定義
+`routes/user.js`にschemaを追記します。
+```javascript
+var schema = new db.Schema({
+  id    : { type: String }
+ ,name  : { type: String }
+ ,age   : { type: Number }
+});
+```
+
+
+##### 3) Model定義
+スキーマで定義したオブジェクトをModelとして登録します。
+```javascript
+var User = db.model('User', schema);
+```
+
+
+##### 4) createリクエストの作成
+Userデータを作成する画面を追加します。  
+まずは`app.js`にルーティングを追加します。
+usersでpostされたら、`routse/user.js`のcreateに渡します。
+```javascript
+app.post('/users', user.create);
+```
+
+次に、`routes/user.js`にcreate処理を書いていきます。
+createの中で、mongooseのModel.createを使ってデータを保存します。
+```javascript
+exports.create = function(req, res){
+  User.create({
+    id   : req.param('id')
+   ,name : req.param('name')
+   ,age  : req.param('age')
+  }, function(err) {
+    res.send('created')
+  });
+};
+```
+
+次に、画面を作成します。
+既にある`views/index.jade`をコピーして作ります。
+```shell
+$ cp views/index.jade views/user.jade
+```
+
+コピーしたら中身を以下のように書き換えます。
+```
+extends layout
+
+block content
+  h1 Add User
+    form(action='/users', method='post')
+      input(type='text', name="id", placeholder="id")
+      br
+      input(type='text', name="name", placeholder="name")
+      br
+      input(type='text', name="age", placeholder="age")
+      br
+      input(type='submit', value='登録')
+```
+
+画面が作成できたので、この画面へのルーティングを設定します。
+最初から`routes/user.js`に_user.list_があるので、まずはそこを利用します。
+```javascript
+exports.list = function(req, res){
+    res.render('users');
+};
+```
+
+ここで、サーバを再起動してみます。
+変更の度に何度も再起動するのは手間なので、変更を自動で反映してくれるパッケージを利用すると便利です。
+パッケージは`supervisor`です。
+```shell
+$ npm install -g supervisor
+```
+
+supervisorで再起動します。
+```shell
+$ supervisor app
+```
+
+登録が成功すると"created"と表示されます。
+(MongoDBのコンソールで確認できます)
+
+
+##### 5) Userリストを表示する
+作成したユーザデータを表示します。
+`routes/user.js`のlistを変更して、MongoDBからデータを取得します。
+```javascript
+exports.list = function(req, res){
+  User.find({}, function(err, users) {
+      res.render('users', {
+        users: users
+    });
+  })
+};
+```
+
+次に、リスト表示する画面を作成します。
+先ほど登録で使った画面を流用します。
+`views/user.js`に以下を追記してください。
+```javascript
+
+  h1 User Listing
+  p ユーザ数: #{users.length}
+    table
+      tr
+        td id
+        td name
+        td age
+  if(users.length > 0)
+    each user in users
+      tr
+        td #{user.id}
+        td #{user.name}
+        td #{user.age}
+```
+
+あとは、ユーザ登録時にこの画面を表示するようにルーティングを変更します。
+create処理をした後にリスト表示処理をさせるには、redirectします。
+```javascript
+exports.create = function(req, res){
+  User.create({
+    id    : req.param('id')
+   ,name  : req.param('name')
+   ,age   : req.param('age')
+  }, function(err) {
+    res.redirect("/users")
+  });
+};
+```
+
+これでページにアクセスすると、ユーザ登録/一覧表示ができるようになっているはずです。

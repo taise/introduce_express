@@ -11,10 +11,9 @@ block content
     br
     input(type='submit', value='登録')
 
-  h1= title
+  h1 User Listing
+  p ユーザ数: #{users.length}
   table
-    tr
-    p ユーザ数: #{users.length}
     tr
       td id
       td name

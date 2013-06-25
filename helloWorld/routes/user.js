@@ -20,14 +20,13 @@ exports.create = function(req, res){
    ,name  : req.param('name')
    ,age   : req.param('age')
   }, function(err) {
-    res.redirect('/users')
+    res.redirect("/users")
   });
 };
 
 exports.list = function(req, res){
   User.find({}, function(err, users) {
     res.render('users', {
-      title: 'User Listing',
       users: users
     });
   })
