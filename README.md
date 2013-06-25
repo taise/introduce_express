@@ -78,6 +78,11 @@ tree -C  -I node_modules
      └── layout.jade
 ```
 
+生成された`app.js`が処理の中心になっており、依存関係のモジュール定義や環境設定、ルーティングなどが記載されている。
+
+![app.js](https://cacoo.com/diagrams/elk3nlNaVeK4Dayy-555AF.png)
+  
+
 ##### 3) Hello World
 
 Nodeサーバー起動
@@ -85,8 +90,12 @@ Nodeサーバー起動
 node app
 ```
 `http://localhost:3000/`にアクセスすると、indexページが表示されていることがわかる。  
+expressの処理の流れは以下の図のようになっている。
 
-次に`routes/index.js`を以下のように変更する
+![処理の流れ](https://cacoo.com/diagrams/elk3nlNaVeK4Dayy-ED582.png)
+
+トップページに、コントローラから渡された"Hello World"と表示するには
+`routes/index.js`を以下のように変更する。
 
 _変更前_
 
