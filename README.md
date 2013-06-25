@@ -98,13 +98,12 @@ expressの処理の流れは以下の図のようになっている。
 トップページに、コントローラから渡された"Hello World"と表示するには
 `routes/index.js`を以下のように変更する。
 
-_変更前_
 ```javascript
 exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
 ```
-_変更後_
+　　　　↓
 ```javascript
 exports.index = function(req, res){
   res.render('index', { title: 'Hello Wold' });
