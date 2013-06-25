@@ -219,7 +219,7 @@ $ cp views/index.jade views/user.jade
 ```
 
 コピーしたら中身を以下のように書き換えます。
-```
+```jade
 extends layout
 
 block content
@@ -274,7 +274,7 @@ exports.list = function(req, res){
 次に、リスト表示する画面を作成します。
 先ほど登録で使った画面を流用します。
 `views/user.js`に以下を追記してください。
-```javascript
+```jade
 
   h1 User Listing
   p ユーザ数: #{users.length}
