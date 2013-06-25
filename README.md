@@ -7,7 +7,7 @@ _3.Getting started_
 
 ### 1.expressとは
 
-expressは、軽量Webアプリケーションフレームワークで
+expressは、Node.jsの軽量Webアプリケーションフレームワークで
 RubyのSinatraのようなシンプルなフレームワークです。  
 Node.jsのHTTPサーバ機能は、プロトコルの仕様にそったローレベルなものであるため、  
 WebApplicationを開発しようとした場合、HTTPリクエストの解析から行わなければなりません。  
