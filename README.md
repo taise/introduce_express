@@ -3,6 +3,7 @@
 _1.expressとは_  
 _2.なぜ Node.js + express を使うか_  
 _3.Getting started_
+_4.パッケージの追加_
   
 
 ### 1.expressとは
@@ -51,17 +52,17 @@ JavaScriptのイベント・ループをベースに非同期処理を行って�
 ##### 1) Install
 
 ```shell
-npm install -g express
-which express
+$ npm install -g express
+$ which express
 ```
 
 ##### 2) Generate
 
 ```shell
-express helloWorld
-cd helloWorld
-npm install
-tree -C  -I node_modules
+$ express helloWorld
+$ cd helloWorld
+$ npm install
+$ tree -C  -I node_modules
  .
  ├── app.js
  ├── package.json
@@ -87,9 +88,9 @@ tree -C  -I node_modules
 
 Nodeサーバー起動
 ```shell
-node app
+$ node app
 ```
-`http://localhost:3000/`にアクセスすると、indexページが表示されていることがわかる。  
+`http://localhost:3000/`にアクセスすると、indexページが表示される。  
 expressの処理の流れは以下の図のようになっている。
 
 ![処理の流れ](https://cacoo.com/diagrams/elk3nlNaVeK4Dayy-ED582.png)
@@ -98,7 +99,6 @@ expressの処理の流れは以下の図のようになっている。
 `routes/index.js`を以下のように変更する。
 
 _変更前_
-
 ```javascript
 exports.index = function(req, res){
   res.render('index', { title: 'Express' });
@@ -106,7 +106,6 @@ exports.index = function(req, res){
 ```
 
 _変更後_
-
 ```javascript
 exports.index = function(req, res){
   res.render('index', { title: 'Hello Wold' });
@@ -115,6 +114,6 @@ exports.index = function(req, res){
 
 Nodeサーバー起動
 ```shell
-node app
+$ node app
 ```
 再度、`http://localhost:3000/`にアクセスすると、タイトルが変更されていることがわかる。  
