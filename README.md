@@ -60,6 +60,13 @@ $ which express
 
 ```shell
 $ express helloWorld
+```
+生成された`app.js`が処理の中心になっており、依存関係のモジュール定義や環境設定、ルーティングなどが記載されている。
+
+![app.js](https://cacoo.com/diagrams/elk3nlNaVeK4Dayy-555AF.png)
+  
+
+```shell
 $ cd helloWorld
 $ npm install
 $ tree -C  -I node_modules
@@ -78,10 +85,6 @@ $ tree -C  -I node_modules
      ├── index.jade
      └── layout.jade
 ```
-
-生成された`app.js`が処理の中心になっており、依存関係のモジュール定義や環境設定、ルーティングなどが記載されている。
-
-![app.js](https://cacoo.com/diagrams/elk3nlNaVeK4Dayy-555AF.png)
   
 
 ##### 3) Hello World
@@ -115,3 +118,39 @@ Nodeサーバー起動
 $ node app
 ```
 再度、`http://localhost:3000/`にアクセスすると、タイトルが変更されていることがわかる。  
+
+  
+
+### 4.パッケージの追加
+
+データの保存/参照機能を追加します。  
+今回はDBにMongoDBを使用します。  
+Node.jsにはMongoDBのORMの`mongoose`というライブラリがあります。  
+
+Node.jsは、npmとpackage.jsonを使ってパッケージ管理をしています。  
+`mongoose`の追加は以下のように行います。
+
+##### 1) package.jsonにmongooseを追加する
+```json
+{
+  "name": "helloWorld",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+      "start": "node app.js"
+    },
+    "dependencies": {
+      "express": "3.2.6",
+      "jade": "*",
+      "mongoose": ">= 1.0.0"
+    }
+}
+```
+
+##### 2) npm install
+```shell
+$ npm install
+```
+
+##### 3) 利用するモジュールでrequireする
+
